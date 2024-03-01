@@ -1,0 +1,39 @@
+swagger: "2.0"
+info:
+  title: "API Dokumentasi untuk Analisis Teks"
+  description: "Contoh dokumentasi API menggunakan Swagger UI"
+  version: "1.0.0"
+host: "localhost:5000"
+basePath: "/api"
+schemes:
+  - "http"
+tags:
+  - name: Text Processing
+paths:
+  /analyze_text:
+    post:
+      summary: "Teks yang akan diproses"
+      tags:
+        - Text Processing
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: text
+          in: body
+          description: "Teks yang akan diproses"
+          required: true
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+                example: "Ini adalah contoh teks untuk dianalisis."
+      responses:
+        '200':
+          description: "Successful response"
+        '400':
+          description: "Bad Request"
+        '500':
+          description: "Internal Server Error"
